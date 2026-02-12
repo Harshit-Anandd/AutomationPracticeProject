@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Checkout</h2>
+
+<h3>Shipping Address</h3>
+<textarea id="address"></textarea>
+
+<h3>Payment Method</h3>
+<select id="payment">
+<option>Credit Card</option>
+<option>UPI</option>
+<option>PayPal</option>
+</select>
+
+<button id="placeOrderBtn">Place Order</button>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+placeOrderBtn.onclick = async () => {
+    await api("/orders/place","POST",{
+        address: address.value,
+        payment: payment.value
+    });
+
+    alert("Order placed");
+    location.href = "orders.html";
+};
+</script>
+
+</body>
+</html>

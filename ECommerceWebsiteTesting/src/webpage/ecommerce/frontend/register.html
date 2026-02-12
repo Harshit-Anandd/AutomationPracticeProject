@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Register</h2>
+
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email">
+<input id="password" type="password">
+
+<button id="registerBtn">Register</button>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+registerBtn.onclick = async () => {
+    await api("/auth/register", "POST", {
+        name: name.value,
+        email: email.value,
+        password: password.value
+    });
+
+    location.href = "login.html";
+};
+</script>
+
+</body>
+</html>

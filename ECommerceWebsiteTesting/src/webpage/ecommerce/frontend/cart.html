@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+<a href="index.html">Home</a>
+</header>
+
+<div class="container">
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<a href="checkout.html">
+<button id="checkoutBtn">Checkout</button>
+</a>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+async function loadCart(){
+    const items = await api("/cart");
+
+    let sum = 0;
+
+    cartItems.innerHTML = items.map(i => {
+        sum += i.price * i.quantity;
+
+        return `
+        <div>
+            ${i.name} x ${i.quantity}
+        </div>`;
+    }).join("");
+
+    total.textContent = sum;
+}
+
+loadCart();
+</script>
+
+</body>
+</html>

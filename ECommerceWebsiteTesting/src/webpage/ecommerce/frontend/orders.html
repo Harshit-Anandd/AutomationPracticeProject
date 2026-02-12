@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Your Orders</h2>
+<div id="orders"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+async function load(){
+    const data = await api("/orders");
+
+    orders.innerHTML = data.map(o => `
+        <div class="product">
+            Order #${o.id}<br>
+            Total: ₹${o.total}<br>
+            Status: ${o.status}
+        </div>
+    `).join("");
+}
+
+load();
+</script>
+
+</body>
+</html>

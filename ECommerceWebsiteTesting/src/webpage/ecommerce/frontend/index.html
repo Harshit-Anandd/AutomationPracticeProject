@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+<a href="index.html">Home</a>
+<a href="cart.html">Cart</a>
+<a href="orders.html">Orders</a>
+<a href="profile.html">Profile</a>
+</header>
+
+<div class="container">
+<input id="searchBox" placeholder="Search">
+
+<div id="productList" class="grid"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+async function loadProducts(){
+    const products = await api("/products");
+
+    productList.innerHTML = products.map(p => `
+        <div class="product">
+            <h3>${p.name}</h3>
+            <p>₹${p.price}</p>
+            <a href="product.html?id=${p.id}">
+                <button>View</button>
+            </a>
+        </div>
+    `).join("");
+}
+
+searchBox.oninput = loadProducts;
+loadProducts();
+</script>
+
+</body>
+</html>

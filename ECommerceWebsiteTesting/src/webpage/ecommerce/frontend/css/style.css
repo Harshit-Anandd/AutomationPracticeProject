@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px;
+    cursor: pointer;
+}
+
+input, select, textarea {
+    padding: 8px;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+}
